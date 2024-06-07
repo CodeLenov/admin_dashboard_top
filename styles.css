@@ -1,0 +1,45 @@
+/*
+1. <body>
+2. <header>
+3. <aside>
+4. <main>
+*/
+
+/* ---------------------------------------------------------------------- */
+/* !!! 1. <body> !!! */
+
+body {
+	display: grid;
+	grid-template: repeat(4, 1fr) / repeat(8, 1fr);
+	grid-template-areas:
+		"aside header header header header header header header"
+		"aside main main main main main main main"
+		"aside main main main main main main main"
+		"aside main main main main main main main";
+}
+
+/* ---------------------------------------------------------------------- */
+/* !!! 2. <header> !!! */
+
+header {
+	grid-area: header;
+}
+
+/* ---------------------------------------------------------------------- */
+/* !!! 3. <aside> !!! */
+
+aside {
+	grid-area: aside;
+}
+
+/* ---------------------------------------------------------------------- */
+/* !!! 4. <main> !!! */
+
+main {
+	grid-area: main;
+}
+
+
+			header, aside, main {
+				border: 1px solid black;
+			}
