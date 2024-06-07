@@ -9,6 +9,7 @@
 /* !!! 1. <body> !!! */
 
 body {
+	margin: 0;
 	display: grid;
 	grid-template: repeat(4, 1fr) / 1fr repeat(3, 2fr);
 	grid-template-areas:
@@ -24,6 +25,27 @@ body {
 
 header {
 	grid-area: header;
+	display: grid;
+	grid-template: 1fr 1fr / 1fr 1fr;
+	grid-template-areas:
+		"headerSearchBar headerAccount"
+		"headerHi headerButtons";
+}
+
+#headerSearchBar {
+	grid-area: headerSearchBar;
+}
+
+#headerAccount {
+	grid-area: headerAccount;
+}
+
+#headerHi {
+	grid-area: headerHi;
+}
+
+#headerButtons {
+	grid-area: headerButtons;
 }
 
 /* ---------------------------------------------------------------------- */
@@ -48,7 +70,7 @@ aside hgroup svg {
 
 aside ul {
 	list-style-type: none;
-	padding: 0 1em;
+	padding: 0 1em 1em 1em;
 }
 
 aside li {
@@ -75,6 +97,6 @@ main {
 }
 
 
-			header, aside, main {
+			header, aside, main, headerSearchBar, headerAccount, headerHi, headerButtons {
 				border: 1px solid black;
 			}
