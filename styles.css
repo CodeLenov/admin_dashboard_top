@@ -10,14 +10,17 @@
 
 body {
 	margin: 0;
+
 	display: grid;
-	grid-template: repeat(4, 1fr) / 1fr repeat(3, 2fr);
+	grid-template: 1fr 3fr / 1fr 6fr;
 	grid-template-areas:
-		"aside header header header"
-		"aside main main main"
-		"aside main main main"
-		"aside main main main";
+		"aside header"
+		"aside main";
 	font-family: Roboto;
+}
+
+svg {
+	fill: currentColor;
 }
 
 /* ---------------------------------------------------------------------- */
@@ -25,19 +28,51 @@ body {
 
 header {
 	grid-area: header;
+	background-color: #ccc;
 	display: grid;
 	grid-template: 1fr 1fr / 1fr 1fr;
 	grid-template-areas:
-		"headerSearchBar headerAccount"
+		"headerSearch headerAccount"
 		"headerHi headerButtons";
 }
 
-#headerSearchBar {
-	grid-area: headerSearchBar;
+#headerSearch {
+	grid-area: headerSearch;
+}
+
+#headerSearch form {
+	display: flex;
+	gap: 0.5em;
+	justify-content: center;
+	transform: translateY(60%); /* center vertically */
+}
+
+#headerSearch form input {
+	width: 80%;
+}
+
+::placeholder {
+	padding-left: 1em;
+}
+
+#headerSearch form label button {
+	cursor: pointer;
+	border-radius: 0.5em;
+}
+
+#headerSearch form label button svg {
+	width: 1.5em;
 }
 
 #headerAccount {
 	grid-area: headerAccount;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#headerAccount a svg {
+	width: 2em;
 }
 
 #headerHi {
@@ -97,6 +132,6 @@ main {
 }
 
 
-			header, aside, main, headerSearchBar, headerAccount, headerHi, headerButtons {
+			header, aside, main, #headerSearchBar, #headerAccount, #headerHi, #headerButtons {
 				border: 1px solid black;
 			}
