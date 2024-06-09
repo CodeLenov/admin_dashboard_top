@@ -10,7 +10,6 @@
 
 body {
 	margin: 0;
-
 	display: grid;
 	grid-template: 1fr 3fr / 1fr 6fr;
 	grid-template-areas:
@@ -30,57 +29,107 @@ header {
 	grid-area: header;
 	background-color: #ccc;
 	display: grid;
-	grid-template: 1fr 1fr / 1fr 1fr;
+	grid-template: 1fr 1fr / 5fr 1fr 1fr 1fr;
 	grid-template-areas:
-		"headerSearch headerAccount"
-		"headerHi headerButtons";
+		"headerSearchBar headerNotificationBell headerHeadingHgroup headerHeadingHgroup"
+		"headerHiThere headerNew headerUpload headerShare";
 }
 
-#headerSearch {
-	grid-area: headerSearch;
+#headerSearchBar {
+	grid-area: headerSearchBar;
+	display: flex;
+	gap: 1em;
+	justify-content: center;
+	align-items: center;
 }
 
-#headerSearch form {
+	#headerSearchBar input {
+		width: 80%;
+		height: 60%;
+		border: none;
+		border-radius: 1em;
+		font-size: 1.2em;
+	}
+
+	#headerSearchBar input::placeholder {
+		padding-left: 1em;
+	}
+
+	#headerSearchBar label button {
+		cursor: pointer;
+		border-radius: 0.5em;
+	}
+
+	#headerSearchBar label button svg {
+		width: 2em;
+	}
+
+#headerNotificationBell {
+	grid-area: headerNotificationBell;
+	margin: auto;
+}
+
+	#headerNotificationBell svg {
+		width: 2em;
+		margin: auto;
+	}
+
+#headerHeadingHgroup {
+	grid-area: headerHeadingHgroup;
+	display: flex;
+	gap: 1em;
+	align-items: center;
+}
+
+	#headerHeadingHgroup svg {
+		width: 3em;
+	}
+
+#headerHiThere {
+	grid-area: headerHiThere;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding-left: 4em;
+}
+
+#headerHiThere span {
 	display: flex;
 	gap: 0.5em;
-	justify-content: center;
-	transform: translateY(60%); /* center vertically */
-}
-
-#headerSearch form input {
-	width: 80%;
-}
-
-::placeholder {
-	padding-left: 1em;
-}
-
-#headerSearch form label button {
-	cursor: pointer;
-	border-radius: 0.5em;
-}
-
-#headerSearch form label button svg {
-	width: 1.5em;
-}
-
-#headerAccount {
-	grid-area: headerAccount;
-	display: flex;
 	align-items: center;
+}
+
+	#headerHiThere span svg {
+		width: 2em;
+	}
+
+#headerNew {
+	grid-area: headerNew;
+}
+
+#headerUpload {
+	grid-area: headerUpload;
+}
+
+#headerShare {
+	grid-area: headerShare;
+}
+
+#headerNew, #headerUpload, #headerShare {
+	display: flex;
 	justify-content: center;
+	align-items: center;
 }
 
-#headerAccount a svg {
-	width: 2em;
-}
-
-#headerHi {
-	grid-area: headerHi;
-}
-
-#headerButtons {
-	grid-area: headerButtons;
+	#headerNew button, #headerUpload button, #headerShare button {
+		width: 80%;
+		height: 3em;
+		border: none;
+		border-radius: 2em;
+		background-color: #0080ff;
+		color: white;
+		font-size: 1em;
+		font-weight: bold;
 }
 
 /* ---------------------------------------------------------------------- */
@@ -94,8 +143,8 @@ aside {
 
 aside hgroup {
 	display: flex;
-	flex-flow: row wrap;
 	gap: 0.5em;
+	align-items: center;
 	padding: 0 0.85em;
 }
 
@@ -116,10 +165,11 @@ aside a {
 	text-decoration: none;
 	color: white;
 	font-weight: bold;
+	display: flex;
+	align-items: center;
 }
 
 aside a svg {
-	transform: translateY(15%); /* center vertically */
 	width: 1em;
 	padding-right: 1em;
 }
@@ -132,6 +182,6 @@ main {
 }
 
 
-			header, aside, main, #headerSearchBar, #headerAccount, #headerHi, #headerButtons {
+			header, aside, main, #headerSearchBar, #headerNotificationBell, #headerHeadingHgroup, #headerHiThere, #headerNew, #headerUpload, #headerShare {
 				border: 1px solid black;
 			}
