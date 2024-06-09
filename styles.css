@@ -3,12 +3,15 @@
 2. <header>
 3. <aside>
 4. <main>
+5. <main> <section>
+6. <main> <article>
 */
 
 /* ---------------------------------------------------------------------- */
 /* !!! 1. <body> !!! */
 
 body {
+	height: 100vh;
 	margin: 0;
 	display: grid;
 	grid-template: 1fr 3fr / 1fr 6fr;
@@ -179,8 +182,33 @@ aside a svg {
 
 main {
 	grid-area: main;
+	background-color: rgb(204, 204, 204);
+	display: grid;
+	grid-template: 1fr / 2fr 1fr;
+	grid-template-areas: "mainSection mainArticle";
 }
 
+/* ---------------------------------------------------------------------- */
+/* !!! 5. <main> <section> !!! */
+
+section {
+	grid-area: mainSection;
+	padding: 1em;
+}
+
+#mainSectionContainer {
+	display: grid;
+	grid-template: 1fr 1fr 1fr / 1fr 1fr;
+	grid-auto-flow: row;
+	grid-auto-rows: 1fr;
+}
+
+/* ---------------------------------------------------------------------- */
+/* !!! 6. <main> <article> !!! */
+
+article {
+	grid-area: mainArticle;
+}
 
 			header, aside, main, #headerSearchBar, #headerNotificationBell, #headerHeadingHgroup, #headerHiThere, #headerNew, #headerUpload, #headerShare {
 				border: 1px solid black;
