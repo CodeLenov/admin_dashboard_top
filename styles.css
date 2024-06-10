@@ -193,7 +193,7 @@ main {
 
 section {
 	grid-area: mainSection;
-	padding: 1em 2em;
+	padding: 0 2em;
 }
 
 #mainSectionContainer {
@@ -211,15 +211,15 @@ section {
 	background-color: white;
 }
 
-section a {
+#mainSectionContainer div a {
 	text-decoration: none;
 }
 
-section div div a:first-of-type {
+#mainSectionContainer div a:first-of-type {
 	padding-left: 60%;
 }
 
-section svg {
+#mainSectionContainer div a svg {
 	width: 1.2em;
 	padding: 0.5em;
 	color: black;
@@ -230,6 +230,25 @@ section svg {
 
 article {
 	grid-area: mainArticle;
+	padding: 0 2em 2em 2em;
+}
+
+#mainArticleAnnouncementsContainer div {
+	
+}
+
+#mainArticleTrendingContainer div {
+	display: flex;
+	align-items: center;
+}
+
+#mainArticleTrendingContainer div span {
+	display: flex;
+	flex-direction: column;
+}
+
+#mainArticleTrendingContainer div svg {
+	width: 3em;
 }
 
 			header, aside, main, #headerSearchBar, #headerNotificationBell, #headerHeadingHgroup, #headerHiThere, #headerNew, #headerUpload, #headerShare {
