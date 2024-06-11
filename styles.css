@@ -14,7 +14,7 @@ body {
 	height: 100vh;
 	margin: 0;
 	display: grid;
-	grid-template: 1fr 3fr / 1fr 6fr;
+	grid-template: minmax(min-content, 1fr) minmax(min-content, 3fr) / minmax(min-content, 1fr) minmax(min-content, 6fr);
 	grid-template-areas:
 		"aside header"
 		"aside main";
@@ -30,9 +30,9 @@ svg {
 
 header {
 	grid-area: header;
-	background-color: #ccc;
+	background-color: white;
 	display: grid;
-	grid-template: 1fr 1fr / 5fr 1fr 1fr 1fr;
+	grid-template: minmax(min-content, 1fr) minmax(min-content, 1fr) / minmax(min-content, 5fr) minmax(min-content, 1fr) minmax(min-content, 1fr) minmax(min-content, 1fr);
 	grid-template-areas:
 		"headerSearchBar headerNotificationBell headerHeadingHgroup headerHeadingHgroup"
 		"headerHiThere headerNew headerUpload headerShare";
@@ -44,6 +44,8 @@ header {
 	gap: 1em;
 	justify-content: center;
 	align-items: center;
+	border-radius: 0.5em;
+	background-color: rgb(204, 204, 204);
 }
 
 	#headerSearchBar input {
@@ -73,7 +75,7 @@ header {
 }
 
 	#headerNotificationBell svg {
-		width: 2em;
+		width: 3em;
 		margin: auto;
 	}
 
@@ -81,7 +83,10 @@ header {
 	grid-area: headerHeadingHgroup;
 	display: flex;
 	gap: 1em;
+	justify-content: center;
 	align-items: center;
+	border-radius: 1em;
+	background-color: rgb(204, 204, 204);
 }
 
 	#headerHeadingHgroup svg {
@@ -96,11 +101,11 @@ header {
 	padding-left: 4em;
 }
 
-#headerHiThere span {
-	display: flex;
-	gap: 0.5em;
-	align-items: center;
-}
+	#headerHiThere span {
+		display: flex;
+		gap: 0.5em;
+		align-items: center;
+	}
 
 	#headerHiThere span svg {
 		width: 2em;
@@ -151,31 +156,31 @@ aside hgroup {
 	padding: 0 0.85em;
 }
 
-aside hgroup svg {
-	width: 2em;
-}
+	aside hgroup svg {
+		width: 2em;
+	}
 
-aside ul {
+aside nav ul {
 	list-style-type: none;
 	padding: 0 1em 1em 1em;
 }
 
-aside li {
-	margin: 1em auto;
-}
+	aside nav li {
+		margin: 1em auto;
+	}
 
-aside a {
-	text-decoration: none;
-	color: white;
-	font-weight: bold;
-	display: flex;
-	align-items: center;
-}
+	aside nav li a {
+		text-decoration: none;
+		color: white;
+		font-weight: bold;
+		display: flex;
+		align-items: center;
+	}
 
-aside a svg {
-	width: 1em;
-	padding-right: 1em;
-}
+	aside nav li a svg {
+		width: 1em;
+		padding-right: 1em;
+	}
 
 /* ---------------------------------------------------------------------- */
 /* !!! 4. <main> !!! */
@@ -183,8 +188,9 @@ aside a svg {
 main {
 	grid-area: main;
 	background-color: rgb(204, 204, 204);
+	padding-bottom: 2em;
 	display: grid;
-	grid-template: 1fr / 2fr 1fr;
+	grid-template: minmax(min-content, 1fr) / minmax(min-content, 2fr) minmax(min-content, 1fr);
 	grid-template-areas: "mainSection mainArticle";
 }
 
@@ -193,14 +199,14 @@ main {
 
 section {
 	grid-area: mainSection;
-	padding: 0 2em;
+	padding: 0 0 0 2em;
 }
 
 #mainSectionContainer {
 	display: grid;
-	grid-template: 1fr 1fr 1fr / 1fr 1fr;
+	grid-template: minmax(min-content, 1fr) minmax(min-content, 1fr) minmax(min-content, 1fr) / minmax(min-content, 1fr) minmax(min-content, 1fr);
 	grid-auto-flow: row;
-	grid-auto-rows: 1fr;
+	grid-auto-rows: minmax(min-content, 1fr);
 	gap: 2em;
 }
 
@@ -211,19 +217,25 @@ section {
 	background-color: white;
 }
 
-#mainSectionContainer div a {
-	text-decoration: none;
-}
+	#mainSectionContainer div p {
+		max-height: 13em;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
 
-#mainSectionContainer div a:first-of-type {
-	padding-left: 60%;
-}
+	#mainSectionContainer div a {
+		text-decoration: none;
+	}
 
-#mainSectionContainer div a svg {
-	width: 1.2em;
-	padding: 0.5em;
-	color: black;
-}
+	#mainSectionContainer div a:first-of-type {
+		padding-left: 60%;
+	}
+
+	#mainSectionContainer div a svg {
+		width: 1.3em;
+		padding: 0 0.5em 0.5em 0.5em;
+		color: black;
+	}
 
 /* ---------------------------------------------------------------------- */
 /* !!! 6. <main> <article> !!! */
@@ -234,23 +246,33 @@ article {
 }
 
 #mainArticleAnnouncementsContainer div {
-	
+	padding: 0 1em;
+	border: 0.1em solid rgb(204, 204, 204);
+	border-radius: 0.5em;
+	background-color: white;
 }
+
+	#mainArticleAnnouncementsContainer div p {
+		max-height: 7em;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
 
 #mainArticleTrendingContainer div {
+	padding: 1em;
 	display: flex;
 	align-items: center;
+	gap: 1em;
+	border: 0.1em solid rgb(204, 204, 204);
+	border-radius: 0.5em;
+	background-color: white;
 }
 
-#mainArticleTrendingContainer div span {
-	display: flex;
-	flex-direction: column;
-}
+	#mainArticleTrendingContainer div span {
+		display: flex;
+		flex-direction: column;
+	}
 
-#mainArticleTrendingContainer div svg {
-	width: 3em;
-}
-
-			header, aside, main, #headerSearchBar, #headerNotificationBell, #headerHeadingHgroup, #headerHiThere, #headerNew, #headerUpload, #headerShare {
-				border: 1px solid black;
-			}
+	#mainArticleTrendingContainer div svg {
+		width: 3em;
+	}
